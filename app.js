@@ -20,4 +20,5 @@ app.set("view engine", "ejs");
 
 // 4 Routing code
 app.use("/", router);
+
 module.exports = app;
