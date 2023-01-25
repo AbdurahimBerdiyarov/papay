@@ -4,7 +4,7 @@ let memberController = module.exports;
 
 memberController.signup = async (req, res) => {
   try {
-    console.log("POST cont.signup");
+    console.log("POST: cont/signup");
     const data = req.body,
       member = new Member(),
       new_member = await member.signupData(data);
@@ -18,7 +18,7 @@ memberController.signup = async (req, res) => {
 
 memberController.login = async (req, res) => {
   try {
-    console.log("POST cont.login");
+    console.log("POST: cont/login");
     const data = req.body,
       member = new Member(),
       result = await member.loginData(data);

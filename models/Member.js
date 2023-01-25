@@ -17,8 +17,6 @@ class Member {
         throw new Error(Definer.auth_err1);
       }
 
-      console.log(result);
-
       result.mb_password = "";
 
       return result;
@@ -27,7 +25,7 @@ class Member {
     }
   }
 
-  async loginpData(input) {
+  async loginData(input) {
     try {
       const member = await this.memberModel
         .findOne({ mb_nick: input.mb_nick }, { mb_nick: 1, mb_password: 1 })
