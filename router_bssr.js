@@ -10,7 +10,6 @@ const uploader_product = require("./utils/upload-multer")("products");
 
 router_bssr
   .get("/signup", restaurantController.getSignupMyRestaurant)
-
   .post("/signup", restaurantController.signupProcess);
 
 router_bssr
