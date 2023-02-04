@@ -1,10 +1,44 @@
-// 📌  L-Task: String bolib kelgan argumentni ichidagi sonni hisoblab javobini butun qilib return qilsin. Masalan: Calculate("1+1") return qilsin 2, calculate("4*5") return qilsin 20.
-function calculate(number) {
-  let res = eval(number);
-  return Math.floor(res);
+// 📌  M-Task: shunday Member class tuzing, uning bir private counts nomli state bolsin, hamda bu classni 3ta methodlari bolsin, ular addMember, removeMember, inform.
+
+// 📩 New message from group :
+
+// 📌  Masalan: member.addMember(5) hech qanday log chiqmasin, member.removeMember(2) bunda ham log kerakmas va member.inform() bizga memberlar soni 3ta chiqarsin.
+
+class Member {
+  #counts;
+
+  constructor(counts) {
+    this.#counts = counts;
+  }
+
+  addMember(amount) {
+    this.#counts += amount;
+  }
+
+  removeMember(lorem) {
+    this.#counts -= lorem;
+  }
+
+  inform() {
+    console.log(this.#counts);
+  }
 }
-const wor = calculate("60/12");
-console.log(wor);
+
+const Walter = new Member(0);
+// Walter.inform();
+// Walter.addMember();
+Walter.addMember(6);
+Walter.removeMember(3);
+
+Walter.inform();
+
+// 📌  L-Task: String bolib kelgan argumentni ichidagi sonni hisoblab javobini butun qilib return qilsin. Masalan: Calculate("1+1") return qilsin 2, calculate("4*5") return qilsin 20.
+// function calculate(number) {
+//   let res = eval(number);
+//   return Math.floor(res);
+// }
+// const wor = calculate("60/12");
+// console.log(wor);
 
 // console.log("train ishga tushdi");
 
