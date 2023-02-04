@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const {
-  products_collection_enums,
+  product_collection_enums,
   product_status_enums,
   product_size_enums,
   product_volume_enums,
@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: {
-        values: products_collection_enums,
+        values: product_collection_enums,
         message: "{VALUE} is not among permitted enum values",
       },
     },
