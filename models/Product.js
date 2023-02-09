@@ -30,7 +30,7 @@ class Product {
       const result = await new_product.save();
 
       assert.ok(result, Definer.product_err1);
-      return true;
+      return result;
     } catch (err) {
       throw err;
     }
