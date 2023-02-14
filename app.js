@@ -21,7 +21,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     cookie: {
-      maxAge: 1000 * 15, // for 30 minutes
+      maxAge: 1000 * 60 * 30, // for 30 minutes
     },
     store: store,
     resave: true,
@@ -38,7 +38,7 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 Routing code
-app.use("/resto", router_bssr); //ananaviy
 app.use("/", router); //React
+app.use("/resto", router_bssr); //ananaviy
 
 module.exports = app;
