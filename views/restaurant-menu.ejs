@@ -66,6 +66,7 @@
         <form
           onsubmit="return validateForm()"
           action="/resto/products/create"
+
           method="POST"
           class="dish_container"
           enctype="multipart/form-data"
@@ -298,7 +299,7 @@
       const image_class_name = input.className;
       const file = $(`.${image_class_name}`).get(0).files[0];
       fileType = file["type"],
-        validImageTypes = ["image/jpg", "image/jpeg", "image/png"];
+        validImageTypes = ["image/jpg", "image/jpeg", "image/png"]
 
       if (!validImageTypes.includes(fileType)) {
         alert(

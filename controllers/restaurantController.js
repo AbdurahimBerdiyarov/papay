@@ -143,7 +143,7 @@ const Definer = require("../lib/mistake");
 const Member = require("../models/Member");
 const Product = require("../models/Product");
 const assert = require("assert");
-// const Restaurant = require("../models/Restaurant");
+const Restaurant = require("../models/Restaurant");
 
 let restaurantController = module.exports;
 
@@ -291,40 +291,40 @@ restaurantController.checkSessions = (req, res) => {
   }
 };
 
-// restaurantController.getAllRestaurants = async (req, res) => {
-//   try {
-//     console.log("GET: cont/getAllRestaurants");
+restaurantController.validateAdmin = (req, res, next) => {
+  if (req.session?.member?.mb_type === "ADMIN") {
+    req.member = req.session.member;
+    next();
+  } else {
+    const html = `<script>
+                    alert("Admin page: Permission denied");
+                    window.location.replace("/resto");
+                  </script>`;
+    res.end(html);
+  }
+};
 
-//     const restaurant = new Restaurant();
-//     const restaurants_data = await restaurant.getAllRestaurantData();
-//     res.render("all-restaurants", { restaurants_data: restaurants_data });
-//   } catch (err) {
-//     console.log(`ERROR, cont/getAllRestaurants, ${err.message}`);
-//     res.json({ state: "fail", message: err.message });
-//   }
-// };
+restaurantController.getAllRestaurants = async (req, res) => {
+  try {
+    console.log("GET: cont/getAllRestaurants");
 
-// restaurantController.updateRestaurantByAdmin = async (req, res) => {
-//   try {
-//     console.log("GET cont/updateRestaurantByAdmin");
-//     const restaurant = new Restaurant();
-//     const result = await restaurant.updateRestaurantByAdminData(req.body);
-//     await res.json({ state: "success", data: result });
-//   } catch (err) {
-//     console.log(`ERROR, cont/updateRestaurantByAdmin, ${err.message}`);
-//     res.json({ state: "fail", message: err.message });
-//   }
-// };
+    const restaurant = new Restaurant();
+    const restaurants_data = await restaurant.getAllRestaurantsData();
+    res.render("all-restaurants", { restaurants_data: restaurants_data });
+  } catch (err) {
+    console.log(`ERROR, cont/getAllRestaurants, ${err.message}`);
+    res.json({ state: "fail", message: err.message });
+  }
+};
 
-// restaurantController.validateAdmin = (req, res, next) => {
-//   if (req.session?.member?.mb_type === "ADMIN") {
-//     req.member = req.session.member;
-//     next();
-//   } else {
-//     const html = `<script>
-//                     alert("Admin page: Permission denied");
-//                     window.location("/resto");
-//                   </script>`;
-//     res.end(html);
-//   }
-// };
+restaurantController.updateRestaurantByAdmin = async (req, res) => {
+  try {
+    console.log("GET cont/updateRestaurantByAdmin");
+    const restaurant = new Restaurant();
+    const result = await restaurant.updateRestaurantByAdminData(req.body);
+    await res.json({ state: "success", data: result });
+  } catch (err) {
+    console.log(`ERROR, cont/updateRestaurantByAdmin, ${err.message}`);
+    res.json({ state: "fail", message: err.message });
+  }
+};
