@@ -1,36 +1,54 @@
+// findDay
+const findDay = (a, b) => {
+  let diff_time = new Date(b) - new Date(a);
+
+  let diff_day = diff_time / (1000 * 60 * 60 * 24);
+  return diff_day;
+};
+let res = findDay("11/01/2023", "11/05/2023");
+console.log(res);
+
+// const res = (findDay = ("12/07/2023", "12 / 01 / 2022"));
+// console.log(res);
+
+// const diffInMs = new Date("12/07/2023") - new Date("12/01/2022");
+// console.log(diffInMs);
+// const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+// console.log(diffInDays);
 // 📌  M-Task: shunday Member class tuzing, uning bir private counts nomli state bolsin, hamda bu classni 3ta methodlari bolsin, ular addMember, removeMember, inform.
 
 // 📩 New message from group :
 
 // 📌  Masalan: member.addMember(5) hech qanday log chiqmasin, member.removeMember(2) bunda ham log kerakmas va member.inform() bizga memberlar soni 3ta chiqarsin.
 
-class Member {
-  #counts;
+// class Member {
+//   #counts;
 
-  constructor(counts) {
-    this.#counts = counts;
-  }
+//   constructor(counts) {
+//     this.#counts = counts;
+//   }
 
-  addMember(amount) {
-    this.#counts += amount;
-  }
+//   addMember(amount) {
+//     this.#counts += amount;
+//   }
 
-  removeMember(lorem) {
-    this.#counts -= lorem;
-  }
+//   removeMember(lorem) {
+//     this.#counts -= lorem;
+//   }
 
-  inform() {
-    console.log(this.#counts);
-  }
-}
+//   inform() {
+//     console.log(this.#counts);
+//   }
+// }
 
-const Walter = new Member(0);
+// const Walter = new Member(0);
+// // Walter.inform();
+// // Walter.addMember();
+// Walter.addMember(6);
+// Walter.removeMember(3);
+
 // Walter.inform();
-// Walter.addMember();
-Walter.addMember(6);
-Walter.removeMember(3);
-
-Walter.inform();
 
 // 📌  L-Task: String bolib kelgan argumentni ichidagi sonni hisoblab javobini butun qilib return qilsin. Masalan: Calculate("1+1") return qilsin 2, calculate("4*5") return qilsin 20.
 // function calculate(number) {

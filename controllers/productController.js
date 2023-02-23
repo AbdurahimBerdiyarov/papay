@@ -1,5 +1,4 @@
 const Product = require("../models/Product");
-// const { assert } = require("console");
 const assert = require("assert");
 const Definer = require("../lib/mistake");
 
