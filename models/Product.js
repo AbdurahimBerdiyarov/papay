@@ -44,6 +44,7 @@ class Product {
       throw err;
     }
   }
+
   async getChosenProductData(member, id) {
     try {
       const auth_mb_id = shapeIntoMongooseObjectId(member?.id);
@@ -51,7 +52,7 @@ class Product {
 
       if (member) {
         const member_obj = new Member();
-        member_obj.viewChosenItemByMember(member, id, "product");
+        await member_obj.viewChosenItemByMember(member, id, "product");
       }
 
       const result = await this.productModel

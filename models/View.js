@@ -18,13 +18,13 @@ class View {
       switch (group_type) {
         case "member":
           result = await this.memberModel
-            .findById({ _id: view_ref_id, mb_status: "ACTIVE" })
+            .findOne({ _id: view_ref_id, mb_status: "ACTIVE" })
             .exec();
           break;
 
         case "product":
           result = await this.productModel
-            .findById({ _id: view_ref_id, mb_status: "PROCESS" })
+            .findOne({ _id: view_ref_id, mb_status: "PROCESS" })
             .exec();
           break;
       }
